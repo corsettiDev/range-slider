@@ -7,28 +7,39 @@ document.head.appendChild(cssLink);
 const sliderEl = document.querySelector("#range");
 const sliderValue = document.querySelector("#range-number");
 
-sliderEl.addEventListener("input", (event) => {
-  const tempSliderValue = event.target.value;
+const sliders = document.querySelectorAll("input[type=range]");
 
-  sliderValue.value = tempSliderValue;
+// slider init
+(function () {
+  sliders.forEach((slider) => {
+    const sliderValue = slider.nextElementSibling;
+    sliderValue.addEventListener("input", (event) => {
+      let tempSliderValue;
+      if (!sliderValue.value) {
+        tempSliderValue = 0;
+      } else if (sliderValue.value > sliderValue.max) {
+        tempSliderValue = sliderValue.max;
+        sliderValue.value = sliderValue.max;
+      } else {
+        tempSliderValue = event.target.value;
+      }
+      slider.value = tempSliderValue;
 
-  const progress = (tempSliderValue / sliderEl.max) * 100;
+      const progress = (tempSliderValue / slider.max) * 100;
+      slider.style.background = `linear-gradient(to right, var(--track) ${progress}%, var(--track-bg) ${progress}%)`;
+    });
 
-  sliderEl.style.background = `linear-gradient(to right, var(--track) ${progress}%, var(--track-bg) ${progress}%)`;
-});
+    const progress = (slider.value / slider.max) * 100;
+    slider.style.background = `linear-gradient(to right, var(--track) ${progress}%, var(--track-bg) ${progress}%)`;
 
-sliderValue.addEventListener("input", (event) => {
-  let tempSliderValue;
-  if (!sliderValue.value) {
-    tempSliderValue = 0;
-  } else if (sliderValue.value > sliderValue.max) {
-    tempSliderValue = sliderValue.max;
-    sliderValue = sliderValue.max;
-  } else {
-    tempSliderValue = event.target.value;
-  }
-  sliderEl.value = tempSliderValue;
+    slider.addEventListener("input", (event) => {
+      const tempSliderValue = event.target.value;
 
-  const progress = (tempSliderValue / sliderEl.max) * 100;
-  sliderEl.style.background = `linear-gradient(to right, var(--track) ${progress}%, var(--track-bg) ${progress}%)`;
-});
+      sliderValue.value = tempSliderValue;
+
+      const progress = (tempSliderValue / slider.max) * 100;
+
+      slider.style.background = `linear-gradient(to right, var(--track) ${progress}%, var(--track-bg) ${progress}%)`;
+    });
+  });
+})();
