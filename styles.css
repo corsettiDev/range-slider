@@ -1,0 +1,111 @@
+:root {
+  --thumb-color: #e9fc75;
+  --track: #232322;
+  --track-bg: #ccc;
+
+  --thumb-hover-bg: color-mix(in srgb, var(--track, black), #0000 90%);
+  --thumb-active-bg: color-mix(in srgb, var(--track, black), #0000 80%);
+
+  /* Dimensions */
+  --thumb-size: 15px;
+}
+
+input[type="range"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+
+  /* New additions */
+  height: 6px;
+  background: var(--track-bg, #ccc);
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    height: var(--thumb-size);
+    width: var(--thumb-size);
+    background-color: var(--thumb-color);
+    border-radius: 50%;
+    border: 1px solid var(--track);
+
+    transition: 0.2s ease-in-out;
+  }
+  &::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 10px var(--thumb-hover-bg);
+  }
+
+  &::-moz-range-thumb {
+    height: var(--thumb-size);
+    width: var(--thumb-size);
+    background-color: var(--thumb-color);
+    border-radius: 50%;
+    border: 1px solid var(--track);
+
+    transition: 0.2s ease-in-out;
+  }
+
+  &::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 10px hsl(from var(--track) h s 90%);
+  }
+}
+
+/* Hover, active & focus Thumb: Webkit */
+
+input[type="range"]:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 13px var(--thumb-active-bg);
+}
+
+/* Hover, active & focus Thumb: Firfox */
+
+input[type="range"]:active::-moz-range-thumb {
+  box-shadow: 0 0 0 13px hsl(from var(--track) h s 80%);
+}
+
+/*=============
+Aesthetics
+=========================*/
+
+body {
+  font-family: system-ui;
+}
+
+h1 {
+  color: #4b4949;
+  text-align: center;
+}
+
+.wrapper {
+  color: #4b4949;
+  background: #f50;
+  max-width: 400px;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 4rem;
+  width: 80%;
+  background: #fff;
+  padding: 0px 10px;
+}
+
+.value {
+  font-size: 26px;
+  width: 50px;
+  text-align: center;
+}
