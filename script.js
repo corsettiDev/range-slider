@@ -29,6 +29,11 @@ const sliders = document.querySelectorAll("[rs-range]");
       slider.style.setProperty("--thumb-active-bg", "transparent");
     }
 
+    if (slider.getAttribute("rs-thumb-border-color")) {
+      const thumbBorderColor = slider.getAttribute("rs-thumb-border-color");
+      slider.style.setProperty("--thumb-border", thumbBorderColor);
+    }
+
     // define conditional slider input
     if (
       typeof slider.closest("[rs-parent]").querySelector("[rs-input]") !==

@@ -1,6 +1,7 @@
 :root {
   --thumb-color: #e9fc75;
   --track: #232322;
+  --thumb-border: var(--track);
   --track-bg: #ccc;
 
   --thumb-hover-bg: color-mix(in srgb, var(--track, black), #0000 90%);
@@ -32,7 +33,7 @@ input[rs-range] {
     width: var(--thumb-size);
     background-color: var(--thumb-color);
     border-radius: 50%;
-    border: 1px solid var(--track);
+    border: 1px solid var(--thumb-border);
 
     transition: 0.2s ease-in-out;
   }
@@ -45,7 +46,7 @@ input[rs-range] {
     width: var(--thumb-size);
     background-color: var(--thumb-color);
     border-radius: 50%;
-    border: 1px solid var(--track);
+    border: 1px solid var(--thumb-border);
 
     transition: 0.2s ease-in-out;
   }
