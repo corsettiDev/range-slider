@@ -4,15 +4,34 @@ cssLink.href = "styles.css";
 
 document.head.appendChild(cssLink);
 
-// const sliderEl = document.querySelector("#range");
-// const sliderValue = document.querySelector("#range-number");
-
 const sliders = document.querySelectorAll("input[type=range]");
 
 // slider init
 (function () {
   sliders.forEach((slider) => {
-    const sliderValue = slider.nextElementSibling;
+    if (slider.getAttribute("rs-track-color")) {
+      const trackColor = slider.getAttribute("rs-track-color");
+      slider.style.setProperty("--track", trackColor);
+    }
+
+    if (slider.getAttribute("rs-track-bg")) {
+      const trackBg = slider.getAttribute("rs-track-bg");
+      slider.style.setProperty("--track-bg", trackBg);
+    }
+
+    if (slider.getAttribute("rs-thumb-color")) {
+      const thumbColor = slider.getAttribute("rs-thumb-color");
+      slider.style.setProperty("--thumb-color", thumbColor);
+    }
+
+    if (slider.getAttribute("rs-hover-disable")) {
+      slider.style.setProperty("--thumb-hover-bg", "transparent");
+      slider.style.setProperty("--thumb-active-bg", "transparent");
+    }
+
+    const sliderValue = slider
+      .closest("[rs-parent]")
+      .querySelector("[rs-input]");
 
     const updateSlider = (value) => {
       const tempSliderValue = value > slider.max ? slider.max : value || 0;
