@@ -9,6 +9,7 @@ const sliders = document.querySelectorAll("[rs-range]");
 // slider init
 (function () {
   sliders.forEach((slider) => {
+    // define slider style overrides
     if (slider.getAttribute("rs-track-color")) {
       const trackColor = slider.getAttribute("rs-track-color");
       slider.style.setProperty("--track", trackColor);
@@ -44,6 +45,7 @@ const sliders = document.querySelectorAll("[rs-range]");
         .querySelector("[rs-input]");
     }
 
+    // slider update function
     const updateSlider = (value) => {
       const tempSliderValue = value > slider.max ? slider.max : value || 0;
       slider.value = tempSliderValue;
@@ -51,7 +53,7 @@ const sliders = document.querySelectorAll("[rs-range]");
         sliderInput.value = tempSliderValue;
       }
       const progress = (tempSliderValue / slider.max) * 100;
-      slider.style.background = `linear-gradient(to right, var(--track) ${progress}%, var(--track-bg) ${progress}%)`;
+      slider.style.background = `linear-gradient(to right, var(--track, black) ${progress}%, var(--track-bg, #ccc) ${progress}%)`;
     };
 
     if (sliderInput) {

@@ -1,8 +1,8 @@
 :root {
-  --thumb-color: #e9fc75;
-  --track: #232322;
-  --thumb-border: var(--track);
-  --track-bg: #ccc;
+  /* --thumb-color: #e9fc75; */
+  /* --track: #232322; */
+  /* --thumb-border: var(--track); */
+  /* --track-bg: #ccc; */
 
   --thumb-hover-bg: color-mix(in srgb, var(--track, black), #0000 90%);
   --thumb-active-bg: color-mix(in srgb, var(--track, black), #0000 80%);
@@ -19,21 +19,21 @@ input[rs-range] {
   width: 100%;
   cursor: pointer;
   outline: none;
-  border-radius: 15px;
+  border-radius: var(--track-border-radius, 15px);
 
   /* New additions */
   height: 6px;
-  background: var(--track-bg, #ccc);
+  background: var(--track-bg, red);
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
 
-    height: var(--thumb-size);
-    width: var(--thumb-size);
-    background-color: var(--thumb-color);
+    height: var(--thumb-size, 15px);
+    width: var(--thumb-size, 15px);
+    background-color: var(--thumb-color, black);
     border-radius: 50%;
-    border: 1px solid var(--thumb-border);
+    border: 1px solid var(--thumb-border, black);
 
     transition: 0.2s ease-in-out;
   }
@@ -42,11 +42,11 @@ input[rs-range] {
   }
 
   &::-moz-range-thumb {
-    height: var(--thumb-size);
-    width: var(--thumb-size);
-    background-color: var(--thumb-color);
+    height: var(--thumb-size, 15px);
+    width: var(--thumb-size, 15px);
+    background-color: var(--thumb-color, black);
     border-radius: 50%;
-    border: 1px solid var(--thumb-border);
+    border: 1px solid var(--thumb-border, black);
 
     transition: 0.2s ease-in-out;
   }
