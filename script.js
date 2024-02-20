@@ -29,21 +29,31 @@ const sliders = document.querySelectorAll("input[type=range]");
       slider.style.setProperty("--thumb-active-bg", "transparent");
     }
 
-    const sliderValue = slider
-      .closest("[rs-parent]")
-      .querySelector("[rs-input]");
+    // define conditional slider input
+    if (
+      typeof slider.closest("[rs-parent]").querySelector("[rs-input-field]") !==
+      "undefined"
+    ) {
+      var sliderInput = slider
+        .closest("[rs-parent]")
+        .querySelector("[rs-input-field]");
+    }
 
     const updateSlider = (value) => {
       const tempSliderValue = value > slider.max ? slider.max : value || 0;
       slider.value = tempSliderValue;
-      sliderValue.value = tempSliderValue;
+      if (sliderInput) {
+        sliderInput.value = tempSliderValue;
+      }
       const progress = (tempSliderValue / slider.max) * 100;
       slider.style.background = `linear-gradient(to right, var(--track) ${progress}%, var(--track-bg) ${progress}%)`;
     };
 
-    sliderValue.addEventListener("input", (event) => {
-      updateSlider(parseFloat(event.target.value));
-    });
+    if (sliderInput) {
+      sliderInput.addEventListener("input", (event) => {
+        updateSlider(parseFloat(event.target.value));
+      });
+    }
 
     slider.addEventListener("input", (event) => {
       updateSlider(parseFloat(event.target.value));
