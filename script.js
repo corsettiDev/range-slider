@@ -1,6 +1,6 @@
 const cssLink = document.createElement("link");
 cssLink.rel = "stylesheet";
-cssLink.href = "styles.css";
+cssLink.href = "script.css";
 
 document.head.appendChild(cssLink);
 
@@ -9,30 +9,26 @@ const sliders = document.querySelectorAll("[rs-range]");
 // slider init
 (function () {
   sliders.forEach((slider) => {
-    // define slider style overrides
-    if (slider.getAttribute("rs-track-color")) {
-      const trackColor = slider.getAttribute("rs-track-color");
-      slider.style.setProperty("--track", trackColor);
+    // set custom attributes
+    const attributes = {
+      "rs-track-color": "--track",
+      "rs-track-bg": "--track-bg",
+      "rs-thumb-color": "--thumb-color",
+      "rs-thumb-border-color": "--thumb-border",
+    };
+
+    for (const [attr, prop] of Object.entries(attributes)) {
+      const value = slider.getAttribute(attr);
+      if (value) {
+        slider.style.setProperty(prop, value);
+      }
     }
 
-    if (slider.getAttribute("rs-track-bg")) {
-      const trackBg = slider.getAttribute("rs-track-bg");
-      slider.style.setProperty("--track-bg", trackBg);
-    }
-
-    if (slider.getAttribute("rs-thumb-color")) {
-      const thumbColor = slider.getAttribute("rs-thumb-color");
-      slider.style.setProperty("--thumb-color", thumbColor);
-    }
+    // disable hover effect
 
     if (slider.getAttribute("rs-hover-disable")) {
       slider.style.setProperty("--thumb-hover-bg", "transparent");
       slider.style.setProperty("--thumb-active-bg", "transparent");
-    }
-
-    if (slider.getAttribute("rs-thumb-border-color")) {
-      const thumbBorderColor = slider.getAttribute("rs-thumb-border-color");
-      slider.style.setProperty("--thumb-border", thumbBorderColor);
     }
 
     // define conditional slider input
