@@ -4,7 +4,7 @@ cssLink.href = "styles.css";
 
 document.head.appendChild(cssLink);
 
-const sliders = document.querySelectorAll("input[type=range]");
+const sliders = document.querySelectorAll("[rs-range]");
 
 // slider init
 (function () {
@@ -31,12 +31,12 @@ const sliders = document.querySelectorAll("input[type=range]");
 
     // define conditional slider input
     if (
-      typeof slider.closest("[rs-parent]").querySelector("[rs-input-field]") !==
+      typeof slider.closest("[rs-parent]").querySelector("[rs-input]") !==
       "undefined"
     ) {
       var sliderInput = slider
         .closest("[rs-parent]")
-        .querySelector("[rs-input-field]");
+        .querySelector("[rs-input]");
     }
 
     const updateSlider = (value) => {

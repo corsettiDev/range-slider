@@ -10,7 +10,7 @@
   --thumb-size: 15px;
 }
 
-input[type="range"] {
+input[rs-range] {
   /* removing default appearance */
   -webkit-appearance: none;
   appearance: none;
@@ -57,13 +57,13 @@ input[type="range"] {
 
 /* Hover, active & focus Thumb: Webkit */
 
-input[type="range"]:active::-webkit-slider-thumb {
+input[rs-range]:active::-webkit-slider-thumb {
   box-shadow: 0 0 0 13px var(--thumb-active-bg);
 }
 
 /* Hover, active & focus Thumb: Firfox */
 
-input[type="range"]:active::-moz-range-thumb {
+input[rs-range]:active::-moz-range-thumb {
   box-shadow: 0 0 0 13px hsl(from var(--track) h s 80%);
 }
 

@@ -9,8 +9,8 @@
   <body>
     <h1>Custom range slider</h1>
     <div class="wrapper">
-      <div class="range" rs-parent="">
-        <input rs-input rs-track-color="red" type="range" min="0" max="50" value="0" />
+      <div class="range" rs-parent>
+        <input rs-range rs-track-color="red" type="range" min="0" max="50" value="0" />
         <input
           style="width: 15px"
           type="text"
@@ -18,10 +18,10 @@
           max="50"
           value="0"
           inputmode="numberic"
-          rs-input-field
+          rs-input
         />
       </div>
-      <div class="range" rs-parent="">
+      <div class="range" rs-parent>
         <input
           rs-track-color="blue"
           rs-track-bg="purple"
@@ -32,7 +32,7 @@
           max="50"
           value="0"
           id="range"
-          rs-input
+          rs-range
         />
         <input
           type="number"
@@ -40,7 +40,7 @@
           max="50"
           value="0"
           id="range-number"
-          rs-input-field
+          rs-input
         />
       </div>
     </div>
