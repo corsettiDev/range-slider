@@ -1,9 +1,3 @@
-const cssLink = document.createElement("link");
-cssLink.rel = "stylesheet";
-cssLink.href = "script.css";
-
-document.head.appendChild(cssLink);
-
 const sliders = document.querySelectorAll("[rs-range]");
 
 // slider init
