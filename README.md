@@ -1,6 +1,26 @@
 # range-slider
 Custom range slider styling project
 
+## Quickstart Guide
+
+Add the following to your webflow project or clone the repository and run a live-server to see it with the included sample index.html file.
+
+In the before </head> tag of your project add the following:
+**Replace 'VERSION' with the latest commit number**
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/corsettiDev/range-slider@'VERSION'/script.css" rel="stylesheet">
+```
+
+In the before </body> tag of your project add the following:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/corsettiDev/range-slider@'VERSION'/script.js"></script>
+```
+
+If you're adding this to a webflow project you can find the style overrides and main element structure below.
+
+
 ## Main Element Structure
 
 | \<element\>            	| attr name 	| attr value 	| required 	| notes                                        	|
