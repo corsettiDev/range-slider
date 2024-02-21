@@ -5,9 +5,9 @@ Custom range slider styling project
 
 | \<element\>            	| attr name 	| attr value 	| required 	| notes                                        	|
 |------------------------	|-----------	|------------	|:--------:	|----------------------------------------------	|
-| \<input type="range"\>   	| rs-range  	|            	|     ✅    	| main element                                 	|
-| \<div\> (parent wrapper) 	| rs-parent 	|            	|          	| parent wrapper if using display element      	|
-| \<input type="number"\>  	| rs-input  	|            	|          	| display element / doubles as secondary input 	|
+| \<input type="range"\>   	| rs-range  	| element      	|    ✅    	| main element                                 	|
+| \<div\> (parent wrapper) 	| rs-parent 	| element      	|          	| parent wrapper if using display element      	|
+| \<input type="number"\>  	| rs-input  	| element      	|          	| display element / doubles as secondary input 	|
 
 ## Styling Overrides
 
