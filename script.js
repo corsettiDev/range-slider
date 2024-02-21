@@ -11,10 +11,25 @@ const sliders = document.querySelectorAll("[rs-range]");
   sliders.forEach((slider) => {
     // set custom attributes
     const attributes = {
+      // track
       "rs-track-color": "--track",
       "rs-track-bg": "--track-bg",
+      "rs-track-border-radius": "--track-border-radius",
+      // thumb
       "rs-thumb-color": "--thumb-color",
+      "rs-thumb-size": "--thumb-size",
+      // thumb border
       "rs-thumb-border-color": "--thumb-border",
+      "rs-thumb-border-size": "--thumb-border-size",
+      "rs-thumb-border-style": "--thumb-border-style",
+      "rs-thumb-border-color": "--thumb-border-color",
+      "rs-thumb-border-radius": "--thumb-border-radius",
+      // hover effect
+      "rs-thumb-hover-size": "--thumb-hover-size",
+      "rs-thumb-hover-bg": "--thumb-hover-bg",
+      // active effect
+      "rs-thumb-active-size": "--thumb-active-size",
+      "rs-thumb-active-bg": "--thumb-active-bg",
     };
 
     for (const [attr, prop] of Object.entries(attributes)) {
@@ -49,7 +64,7 @@ const sliders = document.querySelectorAll("[rs-range]");
         sliderInput.value = tempSliderValue;
       }
       const progress = (tempSliderValue / slider.max) * 100;
-      slider.style.background = `linear-gradient(to right, var(--track, black) ${progress}%, var(--track-bg, #ccc) ${progress}%)`;
+      slider.style.background = `linear-gradient(to right, var(--track, black) ${progress}%, var(--track-bg, lightGray) ${progress}%)`;
     };
 
     if (sliderInput) {
