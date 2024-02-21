@@ -13,7 +13,6 @@ const sliders = document.querySelectorAll("[rs-range]");
       "rs-thumb-color": "--thumb-color",
       "rs-thumb-size": "--thumb-size",
       // thumb border
-      "rs-thumb-border-color": "--thumb-border",
       "rs-thumb-border-size": "--thumb-border-size",
       "rs-thumb-border-style": "--thumb-border-style",
       "rs-thumb-border-color": "--thumb-border-color",

@@ -39,7 +39,7 @@ You could also define the following css variables to override the default stylin
       /* thumb */
       --thumb-color: "black";
       --thumb-size: 15px;
-      --thumb-border: "black";
+      --thumb-border-color: "black";
       --thumb-border-size: 1px;
       --thumb-border-style: "solid";
       --thumb-border-radius: 50%;
