@@ -44,6 +44,8 @@ const sliders = document.querySelectorAll("[rs-range]");
       const input = parent.querySelector("[rs-input]");
       if (input) {
         var sliderInput = input;
+      } else {
+          console.log('No input found');
       }
     }
 
