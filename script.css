@@ -1,0 +1,54 @@
+input[rs-range] {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border-radius: var(--track-border-radius, 15px);
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    height: var(--thumb-size, 15px);
+    width: var(--thumb-size, 15px);
+    background-color: var(--thumb-color, black);
+    border-radius: var(--thumb-border-radius, 50%);
+    border: var(--thumb-border-size, 1px) var(--thumb-border-style, solid)
+      var(--thumb-border-color, black);
+
+    transition: 0.2s ease-in-out;
+  }
+  &::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 var(--thumb-hover-size, 10px)
+      color-mix(in srgb, var(--thumb-hover-bg, black), #0000 90%);
+  }
+
+  &::-moz-range-thumb {
+    height: var(--thumb-size, 15px);
+    width: var(--thumb-size, 15px);
+    background-color: var(--thumb-color, black);
+    border-radius: var(--thumb-border-radius, 50%);
+    border: var(--thumb-border-size, 1px) var(--thumb-border-style, solid)
+      var(--thumb-border-color, black);
+
+    transition: 0.2s ease-in-out;
+  }
+
+  &::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 var(--thumb-hover-size, 10px)
+      color-mix(in srgb, var(--thumb-hover-bg, black), #0000 90%);
+  }
+}
+
+/* Hover, active & focus Thumb: Webkit */
+
+input[rs-range]:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 var(--thumb-active-size, 13px)
+    color-mix(in srgb, var(--thumb-active-bg, black), #0000 80%);
+}
+
+/* Hover, active & focus Thumb: Firfox */
+
+input[rs-range]:active::-moz-range-thumb {
+  box-shadow: 0 0 0 var(--thumb-active-size, 13px)
+    color-mix(in srgb, var(--thumb-active-bg, black), #0000 80%);
+}

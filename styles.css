@@ -1,77 +1,3 @@
-:root {
-  /* --thumb-color: #e9fc75; */
-  /* --track: #232322; */
-  /* --thumb-border: var(--track); */
-  /* --track-bg: #ccc; */
-
-  --thumb-hover-bg: color-mix(in srgb, var(--track, black), #0000 90%);
-  --thumb-active-bg: color-mix(in srgb, var(--track, black), #0000 80%);
-
-  /* Dimensions */
-  --thumb-size: 15px;
-}
-
-input[rs-range] {
-  /* removing default appearance */
-  -webkit-appearance: none;
-  appearance: none;
-  /* creating a custom design */
-  width: 100%;
-  cursor: pointer;
-  outline: none;
-  border-radius: var(--track-border-radius, 15px);
-
-  /* New additions */
-  height: 6px;
-  background: var(--track-bg, red);
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-
-    height: var(--thumb-size, 15px);
-    width: var(--thumb-size, 15px);
-    background-color: var(--thumb-color, black);
-    border-radius: 50%;
-    border: 1px solid var(--thumb-border, black);
-
-    transition: 0.2s ease-in-out;
-  }
-  &::-webkit-slider-thumb:hover {
-    box-shadow: 0 0 0 10px var(--thumb-hover-bg);
-  }
-
-  &::-moz-range-thumb {
-    height: var(--thumb-size, 15px);
-    width: var(--thumb-size, 15px);
-    background-color: var(--thumb-color, black);
-    border-radius: 50%;
-    border: 1px solid var(--thumb-border, black);
-
-    transition: 0.2s ease-in-out;
-  }
-
-  &::-moz-range-thumb:hover {
-    box-shadow: 0 0 0 10px hsl(from var(--track) h s 90%);
-  }
-}
-
-/* Hover, active & focus Thumb: Webkit */
-
-input[rs-range]:active::-webkit-slider-thumb {
-  box-shadow: 0 0 0 13px var(--thumb-active-bg);
-}
-
-/* Hover, active & focus Thumb: Firfox */
-
-input[rs-range]:active::-moz-range-thumb {
-  box-shadow: 0 0 0 13px hsl(from var(--track) h s 80%);
-}
-
-/*=============
-Aesthetics
-=========================*/
-
 body {
   font-family: system-ui;
 }
@@ -79,6 +5,12 @@ body {
 h1 {
   color: #4b4949;
   text-align: center;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
 }
 
 .wrapper {

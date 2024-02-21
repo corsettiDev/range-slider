@@ -1,6 +1,6 @@
 const cssLink = document.createElement("link");
 cssLink.rel = "stylesheet";
-cssLink.href = "styles.css";
+cssLink.href = "script.css";
 
 document.head.appendChild(cssLink);
 
@@ -9,30 +9,41 @@ const sliders = document.querySelectorAll("[rs-range]");
 // slider init
 (function () {
   sliders.forEach((slider) => {
-    // define slider style overrides
-    if (slider.getAttribute("rs-track-color")) {
-      const trackColor = slider.getAttribute("rs-track-color");
-      slider.style.setProperty("--track", trackColor);
+    // set custom attributes
+    const attributes = {
+      // track
+      "rs-track-color": "--track",
+      "rs-track-bg": "--track-bg",
+      "rs-track-border-radius": "--track-border-radius",
+      // thumb
+      "rs-thumb-color": "--thumb-color",
+      "rs-thumb-size": "--thumb-size",
+      // thumb border
+      "rs-thumb-border-color": "--thumb-border",
+      "rs-thumb-border-size": "--thumb-border-size",
+      "rs-thumb-border-style": "--thumb-border-style",
+      "rs-thumb-border-color": "--thumb-border-color",
+      "rs-thumb-border-radius": "--thumb-border-radius",
+      // hover effect
+      "rs-thumb-hover-size": "--thumb-hover-size",
+      "rs-thumb-hover-bg": "--thumb-hover-bg",
+      // active effect
+      "rs-thumb-active-size": "--thumb-active-size",
+      "rs-thumb-active-bg": "--thumb-active-bg",
+    };
+
+    for (const [attr, prop] of Object.entries(attributes)) {
+      const value = slider.getAttribute(attr);
+      if (value) {
+        slider.style.setProperty(prop, value);
+      }
     }
 
-    if (slider.getAttribute("rs-track-bg")) {
-      const trackBg = slider.getAttribute("rs-track-bg");
-      slider.style.setProperty("--track-bg", trackBg);
-    }
-
-    if (slider.getAttribute("rs-thumb-color")) {
-      const thumbColor = slider.getAttribute("rs-thumb-color");
-      slider.style.setProperty("--thumb-color", thumbColor);
-    }
+    // disable hover effect
 
     if (slider.getAttribute("rs-hover-disable")) {
       slider.style.setProperty("--thumb-hover-bg", "transparent");
       slider.style.setProperty("--thumb-active-bg", "transparent");
-    }
-
-    if (slider.getAttribute("rs-thumb-border-color")) {
-      const thumbBorderColor = slider.getAttribute("rs-thumb-border-color");
-      slider.style.setProperty("--thumb-border", thumbBorderColor);
     }
 
     // define conditional slider input
@@ -53,7 +64,7 @@ const sliders = document.querySelectorAll("[rs-range]");
         sliderInput.value = tempSliderValue;
       }
       const progress = (tempSliderValue / slider.max) * 100;
-      slider.style.background = `linear-gradient(to right, var(--track, black) ${progress}%, var(--track-bg, #ccc) ${progress}%)`;
+      slider.style.background = `linear-gradient(to right, var(--track, black) ${progress}%, var(--track-bg, lightGray) ${progress}%)`;
     };
 
     if (sliderInput) {
