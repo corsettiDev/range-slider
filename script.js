@@ -34,20 +34,18 @@ const sliders = document.querySelectorAll("[rs-range]");
     }
 
     // disable hover effect
-
     if (slider.getAttribute("rs-hover-disable")) {
       slider.style.setProperty("--thumb-hover-bg", "transparent");
       slider.style.setProperty("--thumb-active-bg", "transparent");
     }
 
-    // define conditional slider input
-    if (
-      typeof slider.closest("[rs-parent]").querySelector("[rs-input]") !==
-      "undefined"
-    ) {
-      var sliderInput = slider
-        .closest("[rs-parent]")
-        .querySelector("[rs-input]");
+    // // define conditional slider input
+    const parent = slider.closest("[rs-parent]");
+    if (parent) {
+      const input = parent.querySelector("[rs-input]");
+      if (input) {
+        var sliderInput = input;
+      }
     }
 
     // slider update function
